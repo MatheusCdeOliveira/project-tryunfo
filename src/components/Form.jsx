@@ -48,10 +48,9 @@ class Form extends React.Component {
           <label htmlFor="rare-card-input">
             Raridade
             <select name="rare-card-input" data-testid="rare-input" id="">
-              <option value="">options</option>
-              <option value="">normal</option>
-              <option value="">raro</option>
-              <option value="">muito raro</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
             </select>
           </label>
           <label htmlFor="super-trunfo">
