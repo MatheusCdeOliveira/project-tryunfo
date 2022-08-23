@@ -96,17 +96,17 @@ class Form extends React.Component {
               data-testid="rare-input"
               id="rare-card-input"
             >
-              <option value="normal">normal</option>
-              <option value="raro">raro</option>
-              <option value="muito raro">muito raro</option>
+              <option onChange={ onInputChange } value="normal">normal</option>
+              <option onChange={ onInputChange } value="raro">raro</option>
+              <option onChange={ onInputChange } value="muito raro">muito raro</option>
             </select>
           </label>
           <label htmlFor="super-trunfo">
             Super Trybe Trunfo
             <input
               type="checkbox"
-              value={ cardTrunfo }
               onChange={ onInputChange }
+              checked={ cardTrunfo }
               data-testid="trunfo-input"
               name="super-trunfo"
               id="super-trunfo"
