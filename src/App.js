@@ -76,7 +76,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
-      // savedCards,
+      savedCards,
     } = this.state;
     const isValid = cardName.length > 0
     && cardDescription.length > 0
@@ -111,8 +111,18 @@ class App extends React.Component {
           onSaveButtonClick={ this.btnSave }
           hasTrunfo={ hasTrunfo }
         />
+        {savedCards.map((element) => (<Card
+          key={ element.cardName }
+          cardName={ element.cardName }
+          cardDescription={ element.cardDescription }
+          cardAttr1={ element.cardAttr1 }
+          cardAttr2={ element.cardAttr2 }
+          cardAttr3={ element.cardAttr3 }
+          cardImage={ element.cardImage }
+          cardRare={ element.cardRare }
+          cardTrunfo={ cardTrunfo }
+        />))}
         <Card
-          // onInputChange={ this.handleChange }
           cardName={ cardName }
           cardDescription={ cardDescription }
           cardAttr1={ cardAttr1 }
