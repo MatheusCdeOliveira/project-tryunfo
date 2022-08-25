@@ -21,30 +21,7 @@ class App extends React.Component {
     this.setState({ [name]: type === 'checkbox' ? checked : value });
   };
 
-  // validationBtn = () => {
-  //   const { cardName, cardDescription, cardImage, cardRare,
-  //     cardAttr1, cardAttr2, cardAttr3 } = this.state;
-  //   const isValid = cardName.length > 0
-  //   && cardDescription.length > 0
-  //   && cardImage.length > 0
-  //   && cardRare.length > 0;
-  //   const number1 = Number(cardAttr1);
-  //   const number2 = Number(cardAttr2);
-  //   const number3 = Number(cardAttr3);
-  //   const limite90 = 90;
-  //   const limite210 = 210;
-  //   const attValid1 = number1 <= limite90 && number1 >= 0
-  //   && (number1 + number2 + number3 <= limite210);
-  //   const attValid2 = number2 <= limite90 && number2 >= 0
-  //   && (number1 + number2 + number3 <= limite210);
-  //   const attValid3 = number3 <= limite90 && number3 >= 0
-  //   && (number1 + number2 + number3 <= limite210);
-  //   const numbers = attValid1 && attValid2 && attValid3;
-  //   return !isValid || !numbers;
-  // };
-
   btnSave = () => {
-    // event.preventDefault();
     const { cardName, cardImage, cardDescription, savedCards, cardTrunfo } = this.state;
     const obj = { cardName, cardImage, cardDescription, cardTrunfo };
     this.setState({
@@ -62,6 +39,15 @@ class App extends React.Component {
     document.getElementById('card-name').value = '';
     document.getElementById('card-description').value = '';
     document.getElementById('image-input').value = '';
+  };
+
+  deletar = (item) => {
+    const { savedCards } = this.state;
+    console.log(item);
+    const filteredCards = savedCards
+      .filter((element) => (element.cardName === item ? !element : element));
+    const isTrunfo = filteredCards.filter((element) => element.cardTrunfo);
+    this.setState({ savedCards: filteredCards, hasTrunfo: isTrunfo.length > 0 });
   };
 
   render() {
@@ -121,6 +107,7 @@ class App extends React.Component {
           cardImage={ element.cardImage }
           cardRare={ element.cardRare }
           cardTrunfo={ cardTrunfo }
+          deletar={ this.deletar }
         />))}
         <Card
           cardName={ cardName }

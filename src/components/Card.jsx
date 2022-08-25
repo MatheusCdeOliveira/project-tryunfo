@@ -12,7 +12,7 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      deletar,
     } = this.props;
     return (
       <div>
@@ -24,6 +24,17 @@ class Card extends React.Component {
         <p data-testid="attr3-card">{cardAttr3}</p>
         <p data-testid="rare-card">{cardRare}</p>
         {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+        {deletar && (
+          <button
+            data-testid="delete-button"
+            type="button"
+            // name={ cardName }
+            onClick={ () => deletar(cardName) }
+          >
+            Excluir
+
+          </button>
+        )}
       </div>
     );
   }
