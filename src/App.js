@@ -43,7 +43,6 @@ class App extends React.Component {
 
   deletar = (item) => {
     const { savedCards } = this.state;
-    console.log(item);
     const filteredCards = savedCards
       .filter((element) => (element.cardName === item ? !element : element));
     const isTrunfo = filteredCards.filter((element) => element.cardTrunfo);
